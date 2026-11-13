@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANSA Consultora · Mejora de procesos, calidad y auditorías en Costa Rica</title>
+<meta name="description" content="Ingeniería de procesos y calidad para pymes en Costa Rica: mejora de procesos y Lean, sistemas de calidad ISO 9001, auditorías, automatización, departamentos de ventas y compras. Con usted en cada proceso.">
+<meta property="og:title" content="ANSA Consultora · Con usted en cada proceso">
+<meta property="og:description" content="Mejora de procesos, sistemas de calidad, auditorías y automatización para su negocio.">
+<meta property="og:image" content="https://ansacr.com/andres.jpg">
+<meta property="og:url" content="https://ansacr.com/">
+<meta name="theme-color" content="#0F3A4E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap">
+<style>
+
+body{margin:0;background:#F4EFE8}
+a{color:#0F3A4E}a:hover{color:#0A2A39}
+button{font-family:inherit}
+html{scroll-behavior:smooth}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #E8782A;outline-offset:2px}
+.saltar{position:absolute;left:-9999px;top:8px;z-index:50}
+.saltar:focus{left:16px}
+@keyframes deriva{0%{transform:translate(0,0)}20%{transform:translate(-46px,-60px)}45%{transform:translate(-10px,-130px)}70%{transform:translate(-70px,-40px)}100%{transform:translate(0,0)}}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(232,120,42,.5)}70%{box-shadow:0 0 0 16px rgba(232,120,42,0)}100%{box-shadow:0 0 0 0 rgba(232,120,42,0)}}
+@keyframes viaje{0%{offset-distance:0%}100%{offset-distance:100%}}
+.punto{animation:deriva 16s ease-in-out infinite}
+.pulso{animation:pulso 2.6s ease-out infinite}
+.pausado .punto,.pausado .pulso{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.punto,.pulso{animation:none}}
+.corto{display:none}
+.tarjeta{transition:transform .2s cubic-bezier(.22,1,.36,1),box-shadow .2s,opacity .25s}
+.tarjeta:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,58,78,.12)}
+.opcion{transition:background .15s,color .15s,border-color .15s}
+@media (max-width: 560px){.largo{display:none}.corto{display:inline}}
+
+[v-cloak]{opacity:0}
+</style>
+</head>
+<body>
+<div id="app" v-cloak>
+<div :class="rootClass" style="font-family: Inter, system-ui, sans-serif; color: #2B2B2B; background: #F4EFE8; font-size: 17px; line-height: 27px; min-width: 0; position: relative">
+
+<a class="saltar" href="#contenido" style="background: #0F3A4E; color: #FFFFFF; padding: 10px 16px; border-radius: 8px; font-weight: 600; text-decoration: none">Saltar al contenido</a>
+
+<header style="position: sticky; top: 0; z-index: 20; background: #F4EFE8; border-bottom: 1px solid rgba(15,58,78,0.12)">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); height: 76px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px">
+<a href="#inicio" aria-label="ANSA Consultora, inicio" style="display: flex; align-items: center; gap: 8px; text-decoration: none; justify-self: start">
+<svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><path d="M27.5 7 A15 15 0 1 1 12.5 7" fill="none" stroke="#0F3A4E" stroke-width="3.4" stroke-linecap="round"></path><path d="M7.6 6.4 L12.5 7 L10.6 11.6" fill="none" stroke="#0F3A4E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="20" cy="20" r="4.6" fill="#E8782A"></circle></svg>
+<span style="font-family: Sora, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: #0F3A4E">ansa<span style="color: #E8782A">.</span></span>
+</a>
+<div style="position: relative">
+<button type="button" @click="toggleMenu" :aria-expanded="menuExp" aria-label="Menú" style="width: 48px; height: 48px; border: 0; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px">
+<span aria-hidden="true" style="width: 22px; height: 1.6px; background: #0F3A4E; display: block"></span>
+<span aria-hidden="true" style="width: 22px; height: 1.6px; background: #0F3A4E; display: block"></span>
+</button>
+<template v-if="menuOpen">
+<nav aria-label="Principal" style="position: absolute; top: 56px; left: 50%; transform: translateX(-50%); background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; min-width: 220px; box-shadow: 0 12px 32px rgba(15,58,78,0.12)">
+<a href="#inicio" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">El método</a>
+<a href="#por-que" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">Por qué ANSA</a>
+<a href="#servicios" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">Servicios</a>
+<a href="#proyectos" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">Proyectos</a>
+<a href="#flujo" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">El recorrido</a>
+<a href="#quien" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">Quién le acompaña</a>
+<a href="#inversion" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">Inversión</a>
+<a href="#siguiente-paso" @click="closeMenu" style="padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 600">Contacto</a>
+<button type="button" @click="toggleMotion" style="margin-top: 6px; padding: 10px 14px; border-radius: 8px; border: 1px solid #E8DED2; background: #F4EFE8; color: #0F3A4E; font-weight: 600; font-size: 15px; cursor: pointer; text-align: left">{{motionLabel}}</button>
+</nav>
+</template>
+</div>
+<a :href="wa" style="justify-self: end; display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 999px; background: #0F3A4E; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap"><span class="largo">Escríbame por WhatsApp</span><span class="corto">WhatsApp</span></a>
+</div>
+</header>
+
+<main id="contenido">
+
+<section id="inicio" style="padding: clamp(20px, 4vh, 48px) clamp(20px, 5vw, 40px) clamp(56px, 9vh, 96px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">ANSA · EL MÉTODO</span>
+<span aria-hidden="true" style="flex: 0 1 300px; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h1 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(40px, 6vw, 72px); line-height: 1.04; letter-spacing: -0.02em; color: #0F3A4E">Cinco pasos.<br>Objetivo:<br>su negocio<br>en orden<span class="pulso" style="display: inline-block; width: 0.2em; height: 0.2em; border-radius: 50%; background: #E8782A; margin-left: 0.06em"></span></h1>
+<p style="margin: 0; font-size: clamp(18px, 2vw, 22px); line-height: 1.5; color: #2B2B2B; max-width: 520px">Ingeniería de procesos y calidad para que su negocio funcione sin depender de usted: procesos, calidad, auditorías, automatización y departamentos que trabajan con orden.</p>
+<p style="margin: 0; font-weight: 600; max-width: 480px; color: #0F3A4E">Primero medimos dónde está. Después implementamos con su gente y comparamos el antes contra el después.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 6px">
+<a :href="waAgenda" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; border-radius: 999px; background: #0F3A4E; color: #FFFFFF; text-decoration: none; font-weight: 600">Conversemos 30 minutos</a>
+<a href="#servicios" style="font-weight: 600; text-underline-offset: 4px">Ver servicios →</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">LO QUE HACEMOS</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">Mejora de procesos y Lean</a><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">Sistemas de calidad ISO 9001</a><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">Auditorías internas</a><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">Automatización de procesos</a><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">Departamentos de ventas y compras</a><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">Cotizaciones y licitaciones</a><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">Inventario y finanzas</a><a href="#servicios" style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DED2; color: #0F3A4E; font-weight: 600; font-size: 14px; text-decoration: none">KPI y métricas</a></div>
+</div>
+<a href="#quien" style="display: flex; align-items: center; gap: 14px; margin-top: 6px; padding: 12px 16px 12px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E8DED2; text-decoration: none; max-width: 520px">
+<img src="andres.jpg" alt="" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; flex: none">
+<span style="display: flex; flex-direction: column; line-height: 1.35"><span style="font-family: Sora, sans-serif; font-weight: 700; color: #0F3A4E">Ing. Andrés Salas Murillo</span><span style="font-size: 14px; color: #2B2B2B">+5 años en industria aeroespacial y médica · ASQ CQE · Auditor ISO 9001 y AS9100</span></span>
+</a>
+</div>
+
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 18px">
+<div style="position: relative; width: 100%; max-width: 480px; aspect-ratio: 480 / 340">
+<svg viewBox="0 0 480 340" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<line v-for="n in nodos" x1="240" y1="170" :x2="n.cx" :y2="n.cy" stroke="#0F3A4E" stroke-opacity="0.35" stroke-width="1.2" :stroke-dasharray="n.dash"></line>
+<circle v-for="n in nodos" :cx="n.mx" :cy="n.my" r="2.4" fill="#E8782A"></circle>
+</svg>
+<div class="pulso" style="position: absolute; left: 50%; top: 50%; width: 15%; aspect-ratio: 1 / 1; transform: translate(-50%, -50%); border-radius: 50%; background: #0F3A4E; display: flex; align-items: center; justify-content: center; font-family: Sora, sans-serif; font-weight: 700; font-size: 13px; color: #FFFFFF">ANSA</div>
+<template v-for="n in nodos">
+<a :href="n.href" :style="`position: absolute; left: ${n.left}; top: ${n.top}; transform: ${n.tf}; display: flex; flex-direction: ${n.dir}; align-items: center; gap: 8px; text-decoration: none; color: #2B2B2B; font-size: 13px; line-height: 17px; font-weight: 600`">
+<span aria-hidden="true" :style="`width: 12px; height: 12px; flex: none; border-radius: 50%; box-sizing: border-box; background: ${n.fill}; border: 2px ${n.borde} #0F3A4E; box-shadow: ${n.inner}`"></span>
+<span :style="`text-align: ${n.align}; max-width: 110px`">{{n.label}}</span>
+</a>
+</template>
+</div>
+<ul aria-label="Leyenda" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.12em; color: #5A5A5A">
+<li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #0F3A4E"></span>ACOMPAÑADO</li>
+<li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; box-sizing: border-box; border: 2px solid #0F3A4E; background: #FFFFFF; box-shadow: inset 0 0 0 2px #FFFFFF, inset 0 0 0 5px #E8782A"></span>EN IMPLEMENTACIÓN</li>
+<li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; box-sizing: border-box; border: 2px dashed #0F3A4E; background: #FFFFFF"></span>EL SUYO</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="servicios" style="padding: clamp(56px, 9vh, 96px) clamp(20px, 5vw, 40px); background: #E8DED2">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">SERVICIOS · LO QUE HACEMOS</span>
+<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; color: #0F3A4E">Ingeniería de industria regulada, al tamaño de su negocio.</h2>
+<p style="margin: 0">Lo mismo que se exige en plantas aeroespaciales y médicas, traducido a herramientas simples que su equipo puede sostener.</p>
+<p style="margin: 0; font-weight: 600; color: #0F3A4E; display: flex; align-items: center; gap: 8px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#E8782A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"></path><path d="M10 13h6M10 17h4"></path></svg>Todo queda documentado: procedimientos, formatos, responsables e indicadores.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" stroke="#E8782A"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" stroke="#0F3A4E"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Automatización y optimización de procesos</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Menos trabajo manual, menos errores y más tiempo para vender.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Flujos de trabajo simplificados</li><li>Formatos y herramientas digitales</li><li>Automatización de tareas repetitivas</li><li>Reportes que se arman solos</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20automatizaci%C3%B3n%20y%20optimizaci%C3%B3n%20de%20procesos." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7" height="6" rx="1.5" stroke="#0F3A4E"></rect><rect x="14" y="4" width="7" height="6" rx="1.5" stroke="#0F3A4E"></rect><rect x="8.5" y="15" width="7" height="6" rx="1.5" stroke="#E8782A"></rect><path d="M6.5 10v2.5h11V10M12 12.5V15" stroke="#0F3A4E"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Creación de departamentos</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Estructuramos áreas que hoy dependen de una sola persona.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Departamento de ventas</li><li>Departamento de compras</li><li>Roles, responsables y flujos</li><li>Procedimientos e indicadores por área</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20creaci%C3%B3n%20de%20departamentos." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8" stroke="#0F3A4E"></path><path d="M15 8h5v5" stroke="#E8782A"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Mejora de procesos y Lean</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Eliminamos esperas, reprocesos y desorden donde ocurren.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Mapeo de procesos y desperdicios</li><li>5S y gestión visual</li><li>Balanceo de líneas y cargas de trabajo</li><li>Distribución de planta y bodega</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20mejora%20de%20procesos%20y%20lean." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" stroke="#0F3A4E"></path><path d="M8.5 12l2.5 2.5 4.5-5" stroke="#E8782A"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Sistema de gestión de calidad</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Lo montamos desde cero o lo ordenamos, alineado a ISO 9001.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Diseño e implementación del sistema</li><li>Procedimientos (SOP), instructivos y registros</li><li>Control documental</li><li>Preparación para certificaciones y licitaciones</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20sistema%20de%20gesti%C3%B3n%20de%20calidad." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5" stroke="#0F3A4E"></circle><path d="M16 16l4.5 4.5" stroke="#E8782A"></path><path d="M8.5 11l2 2 3.5-3.5" stroke="#E8782A"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Auditorías</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Auditorías internas con criterio de auditor certificado ISO 9001 y AS9100.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Auditorías internas de calidad</li><li>Auditoría de procesos y cumplimiento</li><li>Auditoría de movimientos e inventario</li><li>Informe de hallazgos y plan de acción</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20auditor%C3%ADas." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7" stroke="#0F3A4E"></path><path d="M20 20H3" stroke="#E8782A"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Métricas e indicadores</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Lo que no se mide no se mejora: definimos sus números clave.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Definición de KPI por área</li><li>Línea base y metas</li><li>Tableros de seguimiento</li><li>Rutinas de revisión con el equipo</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20m%C3%A9tricas%20e%20indicadores." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2" stroke="#0F3A4E"></rect><path d="M4 10h16M9 14h6" stroke="#E8782A"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Inventario y control financiero</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Que lo que dice el sistema sea lo que hay, y que la plata se vea.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Control y conciliación de inventario</li><li>Cuentas por pagar</li><li>Margen por producto</li><li>Orden del sistema de facturación</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20inventario%20y%20control%20financiero." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+
+<article class="tarjeta" style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z" stroke="#0F3A4E"></path><path d="M14 3v5h5M10 13h6M10 17h4" stroke="#E8782A"></path></svg>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Cotizaciones, licitaciones y propuestas</h3>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5A5A5A">Cotizaciones claras y bien costeadas, y preparación para competir por clientes grandes.</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 21px"><li>Mejora del proceso de cotización</li><li>Costeo y propuesta técnica</li><li>Requisitos de calidad del cliente</li><li>Procesos y evidencia documentada</li><li>Caso real: 2 de 2 licitaciones ganadas</li></ul>
+<a href="https://wa.me/50689341793?text=Hola%20Andr%C3%A9s%2C%20vi%20la%20p%C3%A1gina%20de%20ANSA%20y%20me%20interesa%20el%20servicio%20de%20cotizaciones%2C%20licitaciones%20y%20propuestas." style="margin-top: auto; padding-top: 8px; font-weight: 600; text-underline-offset: 4px">Me interesa →</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="por-que" style="background: #FFFFFF; border-top: 1px solid #E8DED2; border-bottom: 1px solid #E8DED2; padding: clamp(56px, 9vh, 104px) clamp(20px, 5vw, 40px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">POR QUÉ EXISTE ANSA</span>
+<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 860px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; color: #0F3A4E">Antes de contratar a un consultor, pregúntele si alguna vez se ha metido <span style="color: #E8782A">a la bodega.</span></h2>
+<p style="margin: 0; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.55">Casi todos dicen lo mismo:</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="padding: 8px 16px; border-radius: 999px; background: #F4EFE8; color: #5A5A5A; font-weight: 600; text-decoration: line-through; text-decoration-color: #E8782A; text-decoration-thickness: 2px">soluciones integrales</span>
+<span style="padding: 8px 16px; border-radius: 999px; background: #F4EFE8; color: #5A5A5A; font-weight: 600; text-decoration: line-through; text-decoration-color: #E8782A; text-decoration-thickness: 2px">optimización de procesos</span>
+<span style="padding: 8px 16px; border-radius: 999px; background: #F4EFE8; color: #5A5A5A; font-weight: 600; text-decoration: line-through; text-decoration-color: #E8782A; text-decoration-thickness: 2px">sinergia</span>
+<span style="padding: 8px 16px; border-radius: 999px; background: #F4EFE8; color: #5A5A5A; font-weight: 600; text-decoration: line-through; text-decoration-color: #E8782A; text-decoration-thickness: 2px">mejora continua de clase mundial</span>
+</div>
+<p style="margin: 0; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.55">Y al final le dejan un informe bonito… <strong style="color: #0F3A4E">y en el negocio no cambia nada.</strong></p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 22px; line-height: 28px; color: #0F3A4E">¿Se identifica con alguna?</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px">
+<template v-for="d in dolores">
+<button type="button" class="tarjeta" :aria-pressed="d.sel" @click="d.pick" :style="`text-align: left; cursor: pointer; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: ${d.bg}; border: 2px solid ${d.borde}; color: ${d.fg}`">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%">
+<span style="font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px">“{{d.titulo}}”</span>
+<span aria-hidden="true" :style="`width: 26px; height: 26px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; background: ${d.checkBg}; color: #0A2A39; border: 2px solid ${d.checkBorde}`">{{d.check}}</span>
+</span>
+<span :style="`font-size: 15px; line-height: 23px; color: ${d.sub}`">{{d.texto}}</span>
+</button>
+</template>
+</div>
+<p aria-live="polite" style="margin: 0; font-weight: 600; color: #0F3A4E">{{doloresMsg}} <template v-if="doloresAlguno"><a href="#autodiagnostico" style="text-underline-offset: 4px">Hacer el autodiagnóstico →</a></template></p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: stretch">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 0">
+<div style="display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid #E8DED2">
+<span style="font-family: Sora, sans-serif; font-weight: 700; font-size: 36px; line-height: 40px; color: #E8782A; flex: none; width: 40px">1</span>
+<div><p style="margin: 0 0 4px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">VI UN PROBLEMA</p><p style="margin: 0">Vengo de la industria médica y aeroespacial, donde cada proceso se mide, se documenta y se audita. En las pymes vi lo contrario: dueños muy capaces, pero solos y sin sistema.</p></div>
+</div>
+<div style="display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid #E8DED2">
+<span style="font-family: Sora, sans-serif; font-weight: 700; font-size: 36px; line-height: 40px; color: #E8782A; flex: none; width: 40px">2</span>
+<div><p style="margin: 0 0 4px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">CREÍ QUE HABÍA UNA MEJOR MANERA</p><p style="margin: 0">La diferencia no está en saber más teoría, sino en meterse de lleno y hacerlo junto al dueño y su gente.</p></div>
+</div>
+<div style="display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid #E8DED2; border-bottom: 1px solid #E8DED2">
+<span style="font-family: Sora, sans-serif; font-weight: 700; font-size: 36px; line-height: 40px; color: #E8782A; flex: none; width: 40px">3</span>
+<div><p style="margin: 0 0 4px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">POR ESO EXISTE ANSA</p><p style="margin: 0">Trabajamos con usted, en su negocio, hasta que el cambio se ve en los números. Con usted en cada proceso.</p></div>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; margin-top: 18px">
+<img src="andres.jpg" alt="" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: 50% 18%">
+<span style="display: flex; flex-direction: column; line-height: 1.3"><span style="font-family: Sora, sans-serif; font-weight: 700; color: #0F3A4E">Ing. Andrés Salas Murillo</span><span style="font-size: 14px; color: #5A5A5A">Fundador de ANSA Consultora</span></span>
+</div>
+</div>
+<div style="flex: 1 1 340px; min-width: 0; background: #0F3A4E; color: #FFFFFF; border-radius: 16px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; justify-content: center; gap: 16px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #E8DED2">HÁGASE ESTA PREGUNTA HOY</p>
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(24px, 2.6vw, 30px); line-height: 1.25; color: #FFFFFF">Si usted falta una semana, ¿su negocio sigue igual?</p>
+<p style="margin: 0; color: #E8DED2">Si la respuesta es no, ahí está su primer proceso por ordenar.</p>
+<a href="#autodiagnostico" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 50px; padding: 0 22px; border-radius: 999px; background: #E8782A; color: #0A2A39; text-decoration: none; font-weight: 600">Descubra por dónde empezar</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="proyectos" style="padding: 0 clamp(20px, 5vw, 40px) clamp(56px, 9vh, 96px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">PROYECTOS · MANOS EN LA MASA</span>
+<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; color: #0F3A4E; max-width: 680px">Lo que ya hemos hecho con negocios como el suyo.</h2>
+<div role="group" aria-label="Filtrar proyectos por área" style="display: flex; flex-wrap: wrap; gap: 8px">
+<template v-for="f in filtros">
+<button type="button" class="opcion" :aria-pressed="f.sel" @click="f.pick" :style="`min-height: 40px; padding: 0 16px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 14px; border: 1.5px solid #0F3A4E; background: ${f.bg}; color: ${f.fg}`">{{f.name}}</button>
+</template>
+</div>
+
+<article id="caso-luva" class="tarjeta" :style="`opacity: ${op.luva}; background: #0F3A4E; color: #FFFFFF; border-radius: 16px; padding: clamp(24px, 4vw, 40px); display: flex; flex-wrap: wrap; gap: 28px 48px`">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #E8DED2">LUVA LOGISTICS · TRANSPORTE Y LOGÍSTICA</p>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; color: #FFFFFF">Un sistema de gestión completo para competir por las grandes licitaciones.</h3>
+<ul style="margin: 4px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; color: #F4EFE8"><li>Diseño e implementación del sistema de gestión de calidad, alineado a los requisitos de licitación de Heineken y Walmart: procedimientos, registros y control documental.</li><li>Definición e implementación de indicadores (KPI) para medir y controlar la operación.</li><li>Programa de mantenimiento preventivo de la flotilla de camiones: plan, calendario y registros por unidad.</li><li>Mapeo y estandarización de los procesos operativos de punta a punta.</li><li>Preparación técnica y de costos de las propuestas de licitación.</li></ul>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px"><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(232,222,210,0.45); color: #FFFFFF">Sistema de gestión de calidad</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(232,222,210,0.45); color: #FFFFFF">KPI</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(232,222,210,0.45); color: #FFFFFF">Mantenimiento preventivo</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(232,222,210,0.45); color: #FFFFFF">Mapeo de procesos</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid rgba(232,222,210,0.45); color: #FFFFFF">Licitaciones</span></div>
+</div>
+<div style="flex: 0 1 300px; min-width: 0; align-self: stretch; background: rgba(255,255,255,0.06); border: 1px solid rgba(232,222,210,0.3); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: center; gap: 8px">
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #E8DED2">RESULTADO</span>
+<span style="font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; line-height: 48px; color: #E8782A">2 de 2</span>
+<span style="font-size: 17px; line-height: 26px; color: #FFFFFF">licitaciones ganadas: a la empresa se le otorgaron Heineken y Walmart.</span>
+</div>
+</article>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<article id="caso-payute" class="tarjeta" :style="`opacity: ${op.payute}; background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 10px`">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">FERRETERÍA PAYUTE · COMERCIO</p>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 20px; line-height: 27px; color: #0F3A4E">Orden, control y auditoría integral</h3>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 23px; flex: 1 1 auto"><li>Auditoría de movimientos, de finanzas y del sistema, para encontrar dónde se perdía el control.</li><li>Control de inventario: conteos y conciliación entre el sistema y lo físico.</li><li>Orden y control de cuentas por pagar.</li><li>Redistribución de productos en piso de venta y bodega, por familias y rotación.</li><li>Aplicación de 5S para dejar el orden instalado y sostenible.</li></ul>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px"><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Auditoría</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">5S</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Control de inventario</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Cuentas por pagar</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Distribución de producto</span></div>
+</article>
+<article id="caso-nuso" class="tarjeta" :style="`opacity: ${op.nuso}; background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 10px`">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">NUSO COSTA RICA · MANUFACTURA</p>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 20px; line-height: 27px; color: #0F3A4E">Arranque de nuevas líneas de producción</h3>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 23px; flex: 1 1 auto"><li>Implementación de nuevas líneas de producción: secuencia de operaciones, distribución de estaciones y arranque.</li><li>Asignación de cargas de trabajo por operario con base en tiempos de ciclo.</li><li>Balanceo de línea para reducir cuellos de botella y tiempos de espera.</li></ul>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px"><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Lean Manufacturing</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Balanceo de línea</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Estudio de tiempos</span></div>
+</article>
+<article id="caso-yuca" class="tarjeta" :style="`opacity: ${op.yuca}; background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 10px`">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">EMPACADORA DE YUCA · AGROINDUSTRIA</p>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 20px; line-height: 27px; color: #0F3A4E">Planta ordenada y calidad documentada</h3>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 23px; flex: 1 1 auto"><li>Rediseño de la distribución de planta según el flujo del producto, de la recepción al despacho.</li><li>Diseño e implementación del sistema de gestión de calidad.</li><li>Documentación de procesos: procedimientos, instructivos y registros.</li></ul>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px"><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Distribución de planta</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Sistema de gestión de calidad</span><span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #F4EFE8; color: #0F3A4E">Documentación de procesos</span></div>
+</article>
+</div>
+</div>
+</section>
+
+<section id="quien" style="padding: clamp(56px, 9vh, 96px) clamp(20px, 5vw, 40px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">QUIÉN LE ACOMPAÑA</span>
+<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+<div style="width: 280px; max-width: 100%; aspect-ratio: 1 / 1; flex: none; position: relative">
+<img src="andres.jpg" alt="Ing. Andrés Salas Murillo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 18%; display: block; border: 6px solid #FFFFFF; box-sizing: border-box; box-shadow: 0 0 0 1px #E8DED2">
+<span aria-hidden="true" style="position: absolute; right: 26px; bottom: 26px; width: 30px; height: 30px; border-radius: 50%; background: #E8782A; border: 5px solid #F4EFE8"></span>
+</div>
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.15; letter-spacing: -0.02em; color: #0F3A4E">Ing. Andrés Salas Murillo</h2>
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; color: #2B2B2B">Fundador de ANSA Consultora · Consultor en procesos, calidad y operaciones</p>
+<p style="margin: 0; max-width: 700px">Ingeniero en Producción Industrial con más de 5 años en industrias reguladas, aeroespacial y médica, donde la calidad no se improvisa: se mide, se documenta y se audita. He liderado proyectos de mejora continua, implementación de líneas de producción, transferencias de producto y sistemas de gestión de calidad, junto a equipos de operaciones, manufactura y calidad. Hoy pongo esa misma disciplina al servicio de su negocio, con herramientas simples que su equipo puede sostener.</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px">
+<span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E8DED2; font-weight: 600; font-size: 14px; line-height: 20px; color: #0F3A4E"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5" stroke="#0F3A4E"></circle><path d="M9 14l-1.5 7 4.5-2.5 4.5 2.5L15 14" stroke="#E8782A"></path></svg>ASQ Certified Quality Engineer (CQE)</span>
+<span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E8DED2; font-weight: 600; font-size: 14px; line-height: 20px; color: #0F3A4E"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5" stroke="#0F3A4E"></circle><path d="M9 14l-1.5 7 4.5-2.5 4.5 2.5L15 14" stroke="#E8782A"></path></svg>Auditor interno ISO 9001 certificado</span>
+<span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E8DED2; font-weight: 600; font-size: 14px; line-height: 20px; color: #0F3A4E"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5" stroke="#0F3A4E"></circle><path d="M9 14l-1.5 7 4.5-2.5 4.5 2.5L15 14" stroke="#E8782A"></path></svg>Auditor interno AS9100 certificado</span>
+<span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E8DED2; font-weight: 600; font-size: 14px; line-height: 20px; color: #0F3A4E"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5" stroke="#0F3A4E"></circle><path d="M9 14l-1.5 7 4.5-2.5 4.5 2.5L15 14" stroke="#E8782A"></path></svg>Lean Six Sigma Green Belt</span>
+<span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E8DED2; font-weight: 600; font-size: 14px; line-height: 20px; color: #0F3A4E"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5" stroke="#0F3A4E"></circle><path d="M9 14l-1.5 7 4.5-2.5 4.5 2.5L15 14" stroke="#E8782A"></path></svg>Licenciatura en Ing. en Producción Industrial, TEC</span>
+<span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E8DED2; font-weight: 600; font-size: 14px; line-height: 20px; color: #0F3A4E"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5" stroke="#0F3A4E"></circle><path d="M9 14l-1.5 7 4.5-2.5 4.5 2.5L15 14" stroke="#E8782A"></path></svg>+5 años en industria aeroespacial y médica</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<div style="flex: 1 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 16px; padding: clamp(22px, 3vw, 32px)">
+<p style="margin: 0 0 20px; font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; color: #0F3A4E">EXPERIENCIA PROFESIONAL</p>
+<div style="position: relative; padding: 0 0 28px 32px">
+<span aria-hidden="true" style="position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: #E8782A; border: 3px solid #F4EFE8; box-shadow: 0 0 0 1.5px #0F3A4E"></span>
+<span aria-hidden="true" style="position: absolute; left: 7px; top: 24px; bottom: 0; width: 1.5px; background: rgba(15,58,78,0.25)"></span>
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">CONSULTORÍA · PYMES</p>
+<p style="margin: 2px 0 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">ANSA Consultora</p>
+<p style="margin: 2px 0 8px; font-weight: 600; color: #2B2B2B">Fundador y consultor principal</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 23px"><li>Proyectos de mejora de procesos, calidad, inventario y finanzas para LUVA Logistics, Nuso Costa Rica, Ferretería Payute y una empacadora de yuca.</li><li>Sistema de gestión de calidad que permitió ganar las licitaciones de Heineken y Walmart.</li></ul>
+</div>
+<div style="position: relative; padding: 0 0 28px 32px">
+<span aria-hidden="true" style="position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: #E8782A; border: 3px solid #F4EFE8; box-shadow: 0 0 0 1.5px #0F3A4E"></span>
+<span aria-hidden="true" style="position: absolute; left: 7px; top: 24px; bottom: 0; width: 1.5px; background: rgba(15,58,78,0.25)"></span>
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">DISPOSITIVOS MÉDICOS · CALIDAD POSTMERCADO</p>
+<p style="margin: 2px 0 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Hologic</p>
+<p style="margin: 2px 0 8px; font-weight: 600; color: #2B2B2B">Complaint Quality Engineer II</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 23px"><li>Investigaciones de quejas de dispositivos médicos con análisis de causa raíz y evaluación de riesgo.</li><li>Aprobador de investigaciones: revisión contra procedimientos y retroalimentación estandarizada al equipo.</li><li>Trabajo diario bajo los requisitos regulatorios de la industria médica.</li></ul>
+</div>
+<div style="position: relative; padding: 0 0 0px 32px">
+<span aria-hidden="true" style="position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: #E8782A; border: 3px solid #F4EFE8; box-shadow: 0 0 0 1.5px #0F3A4E"></span>
+
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">MANUFACTURA ELECTRÓNICA · AEROESPACIAL Y MÉDICA</p>
+<p style="margin: 2px 0 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 25px; color: #0F3A4E">Tico Electronics</p>
+<p style="margin: 2px 0 8px; font-weight: 600; color: #2B2B2B">Ingeniero de Manufactura e Ingeniero de Calidad</p>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 23px"><li>Liderazgo de cerca de 80 personas en producción.</li><li>Implementación de líneas de producción.</li><li>Transferencia de productos desde Rochester (Nueva York) y Sacramento (California) para empresas del área médica.</li><li>Revisión de PFMEA, instrucciones de trabajo y listas de inspección.</li></ul>
+</div>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; background: #0F3A4E; color: #FFFFFF; border-radius: 16px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; color: #E8DED2">EN NÚMEROS</p>
+<div><p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; line-height: 48px; color: #E8782A">+5</p><p style="margin: 0; color: #F4EFE8">años en industrias reguladas</p></div>
+<div><p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; line-height: 48px; color: #E8782A">~80</p><p style="margin: 0; color: #F4EFE8">personas lideradas en producción</p></div>
+<div><p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; line-height: 48px; color: #E8782A">2 de 2</p><p style="margin: 0; color: #F4EFE8">licitaciones ganadas con un cliente</p></div>
+<div><p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 44px; line-height: 48px; color: #E8782A">3</p><p style="margin: 0; color: #F4EFE8">certificaciones de calidad: CQE, ISO 9001 y AS9100</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="flujo" style="background: #E8DED2; padding: clamp(56px, 9vh, 96px) clamp(20px, 5vw, 40px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">EL RECORRIDO · SEMANA A SEMANA</span>
+<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; color: #0F3A4E">Qué pasa en cada paso, y qué se lleva usted.</h2>
+<p style="margin: 0; color: #2B2B2B">Las sesiones clave son el diagnóstico, la devolución, la entrega y el cierre; lo demás lo resolvemos por WhatsApp.</p>
+</div>
+
+<div role="tablist" aria-label="Pasos del recorrido" style="position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; padding-top: 8px; overflow-x: auto">
+<span aria-hidden="true" style="position: absolute; left: 8.33%; right: 8.33%; top: 39px; height: 1.5px; background: #0F3A4E; opacity: 0.4"></span>
+<template v-for="p in pasos">
+<button type="button" role="tab" :aria-selected="p.sel" @click="p.pick" style="position: relative; min-width: 96px; background: transparent; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 4px 6px; color: #0F3A4E">
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.12em; color: #5A5A5A">{{p.num}}</span>
+<span aria-hidden="true" :style="`width: 18px; height: 18px; border-radius: 50%; box-sizing: border-box; border: 2px solid ${p.ring}; background: ${p.dot}; box-shadow: ${p.halo}`"></span>
+<span :style="`font-family: Sora, sans-serif; font-size: 17px; line-height: 22px; font-weight: ${p.weight}; text-align: center`">{{p.name}}</span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; color: #5A5A5A; text-align: center">{{p.cuando}}</span>
+</button>
+</template>
+</div>
+
+<div role="tabpanel" style="background: #F4EFE8; border: 1px solid rgba(15,58,78,0.14); border-radius: 12px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">{{cur.crumb}}</p>
+<h3 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 22px; line-height: 28px; color: #0F3A4E">{{cur.name}}</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 16px 48px; margin-top: 4px">
+<div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0 0 4px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">QUÉ PASA</p><p style="margin: 0">{{cur.pasa}}</p></div>
+<div style="flex: 1 1 280px; min-width: 0"><p style="margin: 0 0 4px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">SE LLEVA</p><p style="margin: 0">{{cur.lleva}}</p></div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<p style="margin: 0; color: #2B2B2B">Sin letra chica y sin sorpresas: en cada paso usted sabe dónde está parado.</p>
+<div style="display: flex; gap: 8px">
+<button type="button" class="opcion" @click="prevPaso" :disabled="esPrimero" :style="`min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #0F3A4E; background: transparent; color: #0F3A4E; font-weight: 600; cursor: pointer; opacity: ${opPrev}`">← Anterior</button>
+<button type="button" class="opcion" @click="nextPaso" :disabled="esUltimo" :style="`min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #0F3A4E; background: #0F3A4E; color: #FFFFFF; font-weight: 600; cursor: pointer; opacity: ${opNext}`">Siguiente →</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="autodiagnostico" style="padding: clamp(56px, 9vh, 96px) clamp(20px, 5vw, 40px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">AUTODIAGNÓSTICO · 1 MINUTO</span>
+<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; color: #0F3A4E">¿Qué tan en orden está su negocio?</h2>
+<p style="margin: 0">Cinco preguntas, una por área. Mientras responde, se dibuja el radar de su negocio: es una versión rápida del que entregamos en el diagnóstico.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<template v-for="q in preguntas">
+<fieldset style="margin: 0; border: 1px solid #E8DED2; border-radius: 12px; background: #FFFFFF; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px">
+<legend style="padding: 0 6px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">{{q.n}} · {{q.area}}</legend>
+<p style="margin: 0; font-weight: 600; color: #0F3A4E; font-size: 16px; line-height: 24px">{{q.texto}}</p>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+<template v-for="o in q.ops">
+<button type="button" class="opcion" :aria-pressed="o.sel" @click="o.pick" :style="`min-height: 44px; padding: 6px 4px; border-radius: 8px; cursor: pointer; font-size: 13px; line-height: 17px; font-weight: 600; border: 1.5px solid ${o.borde}; background: ${o.bg}; color: ${o.fg}`">{{o.t}}</button>
+</template>
+</div>
+</fieldset>
+</template>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; position: sticky; top: 96px; display: flex; flex-direction: column; gap: 16px; background: #0F3A4E; color: #FFFFFF; border-radius: 16px; padding: 28px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #E8DED2">EL RADAR DE SU NEGOCIO</p>
+<svg viewBox="0 0 300 280" role="img" :aria-label="radar.aria" style="width: 100%; max-width: 360px; align-self: center">
+<polygon :points="radar.g4" fill="none" stroke="#E8DED2" stroke-opacity="0.35"></polygon>
+<polygon :points="radar.g3" fill="none" stroke="#E8DED2" stroke-opacity="0.2"></polygon>
+<polygon :points="radar.g2" fill="none" stroke="#E8DED2" stroke-opacity="0.2"></polygon>
+<polygon :points="radar.g1" fill="none" stroke="#E8DED2" stroke-opacity="0.2"></polygon>
+<line v-for="e in radar.ejes" x1="150" y1="145" :x2="e.x" :y2="e.y" stroke="#E8DED2" stroke-opacity="0.25"></line>
+<text v-for="e in radar.ejes" :x="e.lx" :y="e.ly" :text-anchor="e.anchor" fill="#FFFFFF" style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 600">{{e.label}}</text>
+<polygon :points="radar.pts" fill="rgba(232,120,42,0.35)" stroke="#E8782A" stroke-width="2.5" stroke-linejoin="round" style="transition: all .3s"></polygon>
+<circle v-for="d in radar.puntos" :cx="d.x" :cy="d.y" r="4.5" fill="#E8782A" stroke="#FFFFFF" stroke-width="1.5"></circle>
+</svg>
+<div aria-live="polite" style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 22px; line-height: 28px; color: #FFFFFF">{{diag.titulo}}</p>
+<p style="margin: 0; color: #E8DED2; font-size: 15px; line-height: 24px">{{diag.texto}}</p>
+</div>
+<template v-if="diag.completo">
+<a :href="diag.wa" style="display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 999px; background: #E8782A; color: #0A2A39; text-decoration: none; font-weight: 600">Enviarme mis resultados por WhatsApp</a>
+<button type="button" @click="resetQuiz" style="align-self: center; background: transparent; border: 0; color: #E8DED2; text-decoration: underline; cursor: pointer; font-size: 14px; min-height: 44px">Volver a empezar</button>
+</template>
+<p style="margin: 0; font-size: 12px; line-height: 18px; color: #E8DED2">Orientativo. El radar real se arma en la visita, con datos de su operación.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="inversion" style="background: #FFFFFF; border-top: 1px solid #E8DED2; padding: clamp(56px, 9vh, 96px) clamp(20px, 5vw, 40px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.22em; color: #0F3A4E; white-space: nowrap">INVERSIÓN · SIN LETRA CHICA</span>
+<span aria-hidden="true" style="flex: 1 1 auto; height: 1px; background: rgba(15,58,78,0.2)"></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 700px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.12; letter-spacing: -0.02em; color: #0F3A4E">Cuánto cuesta empezar.</h2>
+<p style="margin: 0">Primero conocemos su negocio. Después, con datos en la mano, le decimos qué hacer y cuánto cuesta.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: stretch">
+<article class="tarjeta" style="flex: 1 1 380px; min-width: 0; background: #0F3A4E; color: #FFFFFF; border-radius: 16px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #E8DED2">PASO 1 · VISITA Y DIAGNÓSTICO</p>
+<p style="margin: 0; display: flex; align-items: baseline; gap: 10px"><span style="font-family: Sora, sans-serif; font-weight: 700; font-size: 56px; line-height: 60px; color: #FFFFFF">US$200</span><span style="color: #E8DED2">pago único</span></p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#E8782A"></path></svg><span style="color: #F4EFE8">Visita a su negocio, con viáticos incluidos.</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#E8782A"></path></svg><span style="color: #F4EFE8">Análisis de su situación actual y del problema de fondo.</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#E8782A"></path></svg><span style="color: #F4EFE8">Radar de madurez en cinco áreas y los hallazgos principales.</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#E8782A"></path></svg><span style="color: #F4EFE8">Propuesta de proyecto con alcance y precio, por escrito.</span></li>
+</ul>
+<div style="display: flex; gap: 12px; align-items: flex-start; background: rgba(232,120,42,0.16); border: 1.5px solid #E8782A; border-radius: 12px; padding: 14px 16px">
+<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke="#E8782A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.8 2.8L16.5 9.5"></path></svg>
+<p style="margin: 0; color: #FFFFFF"><strong>Si contrata el proyecto, el diagnóstico no se cobra.</strong> Los US$200 solo se pagan si decide no seguir.</p>
+</div>
+<a :href="waAgenda" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 999px; background: #E8782A; color: #0A2A39; text-decoration: none; font-weight: 600">Agendar mi visita</a>
+</article>
+<article class="tarjeta" style="flex: 1 1 380px; min-width: 0; background: #F4EFE8; border: 1px solid #E8DED2; border-radius: 16px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #5A5A5A">PASO 2 EN ADELANTE · EL PROYECTO</p>
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(28px, 3.2vw, 38px); line-height: 1.15; color: #0F3A4E">A la medida de su negocio</p>
+<p style="margin: 0">Cada negocio, cada necesidad y cada forma de trabajo es distinta. Por eso no tenemos un precio de catálogo: el precio sale de lo que encontramos en el diagnóstico.</p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#E8782A"></path></svg><span style="color: #2B2B2B">Opciones de alcance para que usted escoja hasta dónde llegar.</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#E8782A"></path></svg><span style="color: #2B2B2B">Precio acordado por escrito antes de empezar: sin sorpresas.</span></li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-top: 3px" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#E8782A"></path></svg><span style="color: #2B2B2B">Un indicador para medir el resultado contra la línea base.</span></li>
+</ul>
+<div style="margin-top: auto; border-top: 1px solid #E8DED2; padding-top: 14px">
+<p style="margin: 0; font-weight: 600; color: #0F3A4E">¿Y si no contrato el proyecto?</p>
+<p style="margin: 4px 0 0; font-size: 15px; line-height: 24px">Se queda con el diagnóstico y las mejoras rápidas, para aplicarlas usted mismo.</p>
+</div>
+</article>
+</div>
+<div style="display: flex; gap: 16px; align-items: flex-start; background: #F4EFE8; border-radius: 16px; padding: clamp(20px, 3vw, 28px)">
+<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" style="flex: none" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2" stroke="#0F3A4E"></rect><path d="M8 3v4M16 3v4M4 10h16" stroke="#0F3A4E"></path><path d="M9 15l2 2 4-4" stroke="#E8782A"></path></svg>
+<div><p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 26px; color: #0F3A4E">Cupos limitados, compromiso completo.</p>
+<p style="margin: 4px 0 0">No tomamos todos los proyectos. Seleccionamos los que podemos atender bien con nuestra capacidad actual, porque preferimos comprometernos con menos y cumplir con cada uno.</p></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; border: 2px dashed #0F3A4E; border-radius: 16px; padding: clamp(20px, 3vw, 28px)">
+<div style="flex: 1 1 420px; min-width: 0">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.3; color: #0F3A4E">Nuestro objetivo: que el proyecto se pague con lo que usted deja de perder.</p>
+<p style="margin: 6px 0 0; color: #5A5A5A">Reprocesos, inventario perdido, horas buscando cosas, plata que no se ve. Haga el cálculo con sus propios números.</p>
+</div>
+<a href="#costo" @click="abrirCosto" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 22px; border-radius: 999px; background: #0F3A4E; color: #FFFFFF; text-decoration: none; font-weight: 600; white-space: nowrap">Calcular cuánto me cuesta hoy</a>
+</div>
+</div>
+</section>
+
+<section style="padding: clamp(40px, 6vh, 64px) clamp(20px, 5vw, 40px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; border-top: 1px solid rgba(15,58,78,0.16)">
+
+<div style="border-bottom: 1px solid rgba(15,58,78,0.16)">
+<button type="button" @click="tCore" :aria-expanded="coreExp" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; background: transparent; border: 0; cursor: pointer; text-align: left; color: #0F3A4E">
+<span style="display: flex; flex-direction: column; gap: 2px"><span :style="`font-family: Sora, sans-serif; font-weight: 600; font-size: 19px; line-height: 26px; text-decoration: ${coreDeco}; text-decoration-color: #E8782A; text-underline-offset: 6px; text-decoration-thickness: 2px`">El diagnóstico ANSA por dentro</span><span style="font-size: 15px; color: #5A5A5A">La herramienta que usamos en el paso 1 para ver su negocio completo.</span></span>
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" :style="`flex: none; transform: ${coreRot}`" fill="none" stroke="#0F3A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<template v-if="open.core">
+<div style="padding: 0 0 32px; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0">De la visita al plan, en una sola mirada. <strong style="color: #0F3A4E">Usted decide; ANSA mide.</strong></p>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: 999px; background: #E8DED2; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.12em; color: #0F3A4E"><span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #E8782A"></span>5 ÁREAS · 1 RADAR</span>
+
+<div style="border: 1px solid rgba(15,58,78,0.18); border-radius: 12px; overflow: hidden; background: #FFFFFF">
+<div style="background: #0F3A4E; padding: 14px 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px">
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #E8DED2; max-width: 130px">ARRIBA · LO MIRA EL DUEÑO</span>
+<span style="flex: 1 1 auto"></span>
+<span style="padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(232,222,210,0.4); color: #FFFFFF; font-size: 14px">¿Dónde se va la plata?</span>
+<span style="padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(232,222,210,0.4); color: #FFFFFF; font-size: 14px">¿Dónde se pierde el tiempo?</span>
+<span style="padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(232,222,210,0.4); color: #FFFFFF; font-size: 14px">¿Estamos ganando?</span>
+<span style="padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(232,222,210,0.4); color: #FFFFFF; font-size: 14px">¿Cabe más trabajo?</span>
+</div>
+
+<div role="tablist" aria-label="Tramos" style="position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 22px 18px 8px">
+<span aria-hidden="true" style="position: absolute; left: 16.67%; right: 16.67%; top: 31px; height: 1.5px; background: #0F3A4E; opacity: 0.4"></span>
+<template v-for="t in tramos">
+<button type="button" role="tab" :aria-selected="t.sel" @click="t.pick" style="position: relative; background: transparent; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; color: #0F3A4E">
+<span aria-hidden="true" :style="`width: 18px; height: 18px; border-radius: 50%; box-sizing: border-box; border: 2px solid ${t.ring}; background: ${t.dot}`"></span>
+<span :style="`font-family: Sora, sans-serif; font-size: 18px; line-height: 24px; font-weight: ${t.weight}`">{{t.name}}</span>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; color: #5A5A5A">{{t.sub}}</span>
+</button>
+</template>
+</div>
+
+<div style="padding: 0 18px">
+<template v-for="b in curT.bloques">
+<div style="border-top: 1px solid rgba(15,58,78,0.14); padding: 18px 0; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #5A5A5A">{{b.crumb}}</p>
+<h4 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: 19px; line-height: 26px; color: #0F3A4E">{{b.titulo}}</h4>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 40px">
+<div style="flex: 1 1 260px; min-width: 0"><p style="margin: 0 0 4px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #5A5A5A">LO DECIDE USTED</p><p style="margin: 0">{{b.usted}}</p></div>
+<div style="flex: 1 1 260px; min-width: 0"><p style="margin: 0 0 4px; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #5A5A5A">LO HACE ANSA</p><p style="margin: 0">{{b.ansa}}</p></div>
+</div>
+</div>
+</template>
+</div>
+
+<div style="background: #F4EFE8; border-top: 1px solid rgba(15,58,78,0.14); padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 6px 24px; align-items: baseline">
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #5A5A5A">ABAJO · SE ACUERDA UNA VEZ</span>
+<span style="flex: 1 1 320px">Objetivo, indicador de éxito, alcance y lo que queda fuera, precio fijo por fases y confidencialidad de sus números.</span>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; margin-top: 8px">
+<div style="flex: 1 1 380px; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+<template v-for="col in columnas">
+<div style="display: flex; flex-direction: column; align-items: stretch; gap: 0">
+<p style="margin: 0 0 10px; text-align: center; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #5A5A5A">{{col.name}}</p>
+<template v-for="k in col.cajas">
+<div style="display: flex; flex-direction: column; align-items: center">
+<div :style="`position: relative; width: 100%; box-sizing: border-box; padding: 8px 6px; border-radius: 6px; text-align: center; font-size: 13px; line-height: 17px; font-weight: 600; color: #0F3A4E; background: ${k.bg}; border: 1.5px solid ${k.borde}`">{{k.t}}<template v-if="k.badge"><span style="position: absolute; right: -9px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; border: 1.5px solid #0F3A4E; font-family: Sora, sans-serif; font-size: 10px; line-height: 15px; color: #0F3A4E">{{k.badge}}</span></template></div>
+<template v-if="k.flecha"><span aria-hidden="true" style="width: 1.5px; height: 14px; background: #0F3A4E; opacity: 0.6"></span></template>
+</div>
+</template>
+</div>
+</template>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 15px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 3px; border: 1.5px solid #0F3A4E; background: #FFFFFF"></span>Lo decide usted</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 15px"><span aria-hidden="true" style="width: 16px; height: 12px; border-radius: 3px; border: 1.5px solid #E8782A; background: rgba(232,120,42,0.14)"></span>Lo hace ANSA, con su equipo</p>
+<p style="margin: 8px 0 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #5A5A5A">LO QUE QUEDA FIJO ENTRE ETAPAS</p>
+<ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 23px">
+<li>Al aprobar el diagnóstico, queda fija la línea base y el indicador de éxito.</li>
+<li>Al aprobar el plan, arranca la implementación con su contraparte.</li>
+<li>Cada cambio queda escrito y validado antes de pasar al siguiente.</li>
+<li>Al cerrar, se compara contra la línea base y se entrega el plan para sostener.</li>
+</ol>
+</div>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #5A5A5A">Cada semana usted recibe un resumen corto: lo hecho, lo próximo y las decisiones que necesitamos de usted. Lo que tiene consecuencias (aprobar, cambiar el alcance, cerrar una fase) se acuerda por escrito antes de hacerlo.</p>
+</div>
+</template>
+</div>
+
+<div style="border-bottom: 1px solid rgba(15,58,78,0.16)">
+<button type="button" @click="tPide" :aria-expanded="pideExp" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; background: transparent; border: 0; cursor: pointer; text-align: left; color: #0F3A4E">
+<span style="display: flex; flex-direction: column; gap: 2px"><span :style="`font-family: Sora, sans-serif; font-weight: 600; font-size: 19px; line-height: 26px; text-decoration: ${pideDeco}; text-decoration-color: #E8782A; text-underline-offset: 6px; text-decoration-thickness: 2px`">Qué le pide ANSA</span><span style="font-size: 15px; color: #5A5A5A">Lo justo para que funcione.</span></span>
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" :style="`flex: none; transform: ${pideRot}`" fill="none" stroke="#0F3A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<template v-if="open.pide">
+<div style="padding: 0 0 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke="#0F3A4E"></circle><path d="M12 7v5l3 2" stroke="#E8782A"></path></svg>
+<h4 style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 18px; color: #0F3A4E">Tiempo</h4>
+<p style="margin: 0; font-size: 15px; line-height: 24px">Las sesiones clave, una revisión corta por semana y WhatsApp para lo demás.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z" stroke="#0F3A4E"></path><path d="M10 20v-5h4v5" stroke="#E8782A"></path></svg>
+<h4 style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 18px; color: #0F3A4E">Acceso</h4>
+<p style="margin: 0; font-size: 15px; line-height: 24px">Ver su operación real: la bodega, el taller, cómo se cotiza, cómo se cobra y lo que hoy se hace a mano.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+<svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5" stroke="#0F3A4E"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#0F3A4E"></path><circle cx="17.5" cy="9" r="2.5" stroke="#E8782A"></circle><path d="M17 14c2.4 0 4 1.8 4 4.5" stroke="#E8782A"></path></svg>
+<h4 style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 18px; color: #0F3A4E">Una contraparte</h4>
+<p style="margin: 0; font-size: 15px; line-height: 24px">Alguien de su equipo que conozca el día a día y que se quede con el sistema cuando terminemos.</p>
+</div>
+</div>
+<p style="margin: 0">Medimos una línea base antes de empezar, y en el cierre le presentamos los resultados contra ese mismo número.</p>
+</div>
+</template>
+</div>
+
+<div id="costo" style="border-bottom: 1px solid rgba(15,58,78,0.16)">
+<button type="button" @click="tCosto" :aria-expanded="costoExp" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; background: transparent; border: 0; cursor: pointer; text-align: left; color: #0F3A4E">
+<span style="display: flex; flex-direction: column; gap: 2px"><span :style="`font-family: Sora, sans-serif; font-weight: 600; font-size: 19px; line-height: 26px; text-decoration: ${costoDeco}; text-decoration-color: #E8782A; text-underline-offset: 6px; text-decoration-thickness: 2px`">¿Cuánto le cuesta hoy?</span><span style="font-size: 15px; color: #5A5A5A">Calcúlelo con sus números</span></span>
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" :style="`flex: none; transform: ${costoRot}`" fill="none" stroke="#0F3A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<template v-if="open.costo">
+<div style="padding: 0 0 32px; display: flex; flex-wrap: wrap; gap: 28px">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="calc-h" style="font-weight: 600; font-size: 15px; color: #0F3A4E">Horas por semana en reprocesos y seguimiento</label>
+<input id="calc-h" type="number" min="0" step="1" :value="h" @input="onH" style="min-height: 46px; padding: 0 14px; font-size: 17px; font-family: Sora, sans-serif; border: 1.5px solid #0F3A4E; border-radius: 8px; background: #FFFFFF; color: #2B2B2B; box-sizing: border-box; width: 100%">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="calc-v" style="font-weight: 600; font-size: 15px; color: #0F3A4E">Costo de una hora de su equipo (₡)</label>
+<input id="calc-v" type="number" min="0" step="500" :value="v" @input="onV" style="min-height: 46px; padding: 0 14px; font-size: 17px; font-family: Sora, sans-serif; border: 1.5px solid #0F3A4E; border-radius: 8px; background: #FFFFFF; color: #2B2B2B; box-sizing: border-box; width: 100%">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="calc-p" style="font-weight: 600; font-size: 15px; color: #0F3A4E">Porcentaje que se puede recuperar (%)</label>
+<input id="calc-p" type="number" min="0" max="100" step="5" :value="p" @input="onP" style="min-height: 46px; padding: 0 14px; font-size: 17px; font-family: Sora, sans-serif; border: 1.5px solid #0F3A4E; border-radius: 8px; background: #FFFFFF; color: #2B2B2B; box-sizing: border-box; width: 100%">
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-content: start">
+<div style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 12px; padding: 18px"><span aria-live="polite" style="display: block; font-family: Sora, sans-serif; font-weight: 700; font-size: 30px; line-height: 38px; color: #0F3A4E">{{horas}} h</span><span style="font-size: 14px; color: #5A5A5A">recuperables al año</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 12px; padding: 18px"><span style="display: block; font-family: Sora, sans-serif; font-weight: 700; font-size: 30px; line-height: 38px; color: #0F3A4E">₡{{mes}}</span><span style="font-size: 14px; color: #5A5A5A">al mes</span></div>
+<div style="background: #0F3A4E; border-radius: 12px; padding: 18px"><span style="display: block; font-family: Sora, sans-serif; font-weight: 700; font-size: 30px; line-height: 38px; color: #FFFFFF">₡{{anio}}</span><span style="font-size: 14px; color: #E8DED2">al año</span></div>
+<div style="background: #FFFFFF; border: 1px solid #E8DED2; border-radius: 12px; padding: 18px"><span style="display: block; font-family: Sora, sans-serif; font-weight: 700; font-size: 30px; line-height: 38px; color: #0F3A4E">{{dias}}</span><span style="font-size: 14px; color: #5A5A5A">días de trabajo completos</span></div>
+<p style="grid-column: 1 / -1; margin: 0; font-size: 14px; line-height: 22px; color: #5A5A5A">Son valores de muestra y una estimación. El número real sale de medir su línea base en el diagnóstico.</p>
+</div>
+</div>
+</template>
+</div>
+
+</div>
+</section>
+
+<section id="siguiente-paso" style="background: #0F3A4E; color: #FFFFFF; padding: clamp(40px, 6vh, 72px) clamp(20px, 5vw, 40px)">
+<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px">
+<h2 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.2; letter-spacing: -0.02em; color: #FFFFFF; max-width: 380px">¿Conversamos de su negocio?</h2>
+<div style="display: flex; flex-direction: column; gap: 12px; flex: 0 1 300px">
+<a :href="wa" style="display: flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; border-radius: 999px; background: #E8782A; color: #0A2A39; text-decoration: none; font-weight: 600; font-size: 17px">Escríbame por WhatsApp</a>
+<span style="font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.14em; color: #E8DED2">LE RESPONDO YO · CUPOS LIMITADOS</span>
+<span style="font-size: 15px; color: #E8DED2">o <a :href="waAgenda" style="color: #FFFFFF">agende 30 minutos</a></span>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer style="background: #0F3A4E; color: #E8DED2; padding: 0 clamp(20px, 5vw, 40px) 28px; overflow: hidden">
+<div style="max-width: 1120px; margin: 0 auto; border-top: 1px solid rgba(232,222,210,0.2); padding-top: 24px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: 14px">
+<nav aria-label="Pie" style="display: flex; flex-wrap: wrap; gap: 8px 20px">
+<a href="#inicio" style="color: #FFFFFF; text-decoration: none">El método</a>
+<a href="#servicios" style="color: #FFFFFF; text-decoration: none">Servicios</a>
+<a href="#proyectos" style="color: #FFFFFF; text-decoration: none">Proyectos</a>
+<a href="#flujo" style="color: #FFFFFF; text-decoration: none">El recorrido</a>
+<a href="#quien" style="color: #FFFFFF; text-decoration: none">Quién le acompaña</a>
+<a href="#siguiente-paso" style="color: #FFFFFF; text-decoration: none">Contacto</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: Sora, sans-serif; font-size: 12px; letter-spacing: 0.04em">
+<a :href="wa" style="color: #FFFFFF; text-decoration: none">WhatsApp</a>
+<a href="https://www.instagram.com/ansaconsultora" style="color: #FFFFFF; text-decoration: none">@ansaconsultora</a>
+</div>
+</div>
+<p aria-hidden="true" style="margin: 28px 0 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(110px, 25vw, 300px); line-height: 0.8; letter-spacing: -0.05em; color: #F4EFE8; white-space: nowrap">ansa<span style="color: #E8782A">.</span></p>
+<p style="margin: 24px 0 0; font-family: Sora, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.16em; color: #E8DED2">© 2026 · ALAJUELA, COSTA RICA · CON USTED EN CADA PROCESO</p>
+</div>
+</footer>
+
+<span class="punto" aria-hidden="true" style="position: fixed; right: 28px; bottom: 120px; width: 22px; height: 22px; border-radius: 50%; background: #E8782A; z-index: 30; pointer-events: none"></span>
+</div>
+</div>
+<script src="petite-vue.js"></script>
+<script>
+class DCLogic { constructor(props) { this.props = props || {}; this.state = {}; } setState(p) { Object.assign(this.state, p); window.__refresh && window.__refresh(); } }
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { dol: [false, false, false], s: 0, t: 0, f: 'todos', q: [0, 0, 0, 0, 0], h: 8, v: 5000, p: 50, open: { core: true, pide: false, costo: false }, menu: false, paused: false };
+}
+fmt(n) {
+var x = Math.round(isFinite(n) ? n : 0);
+return String(x).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+tog(k) {
+var self = this;
+return function () { var o = Object.assign({}, self.state.open); o[k] = !o[k]; self.setState({ open: o }); };
+}
+renderVals() {
+var self = this;
+var st = this.state;
+
+var nodosRaw = [
+{ label: 'El suyo', cx: 140, cy: 92, side: 'L', tipo: 'suyo', href: '#siguiente-paso' },
+{ label: 'LUVA Logistics', cx: 342, cy: 60, side: 'R', tipo: 'acomp', href: '#caso-luva' },
+{ label: 'Ferretería Payute', cx: 388, cy: 168, side: 'R', tipo: 'acomp', href: '#caso-payute' },
+{ label: 'Empacadora de yuca', cx: 332, cy: 284, side: 'R', tipo: 'impl', href: '#caso-yuca' },
+{ label: 'Nuso Costa Rica', cx: 140, cy: 250, side: 'L', tipo: 'acomp', href: '#caso-nuso' }
+];
+var nodos = nodosRaw.map(function (n) {
+var fill = '#FFFFFF', borde = 'solid', inner = 'none';
+if (n.tipo === 'acomp') fill = '#0F3A4E';
+if (n.tipo === 'impl') inner = 'inset 0 0 0 2px #FFFFFF, inset 0 0 0 6px #E8782A';
+if (n.tipo === 'suyo') borde = 'dashed';
+return {
+label: n.label, cx: n.cx, cy: n.cy, mx: (240 + n.cx) / 2, my: (170 + n.cy) / 2, href: n.href,
+dash: n.tipo === 'suyo' ? '4 4' : '0',
+left: (n.cx / 480 * 100).toFixed(2) + '%', top: (n.cy / 340 * 100).toFixed(2) + '%',
+tf: n.side === 'R' ? 'translate(-6px, -50%)' : 'translate(calc(-100% + 6px), -50%)',
+dir: n.side === 'R' ? 'row' : 'row-reverse', align: n.side === 'R' ? 'left' : 'right',
+fill: fill, borde: borde, inner: inner
+};
+});
+
+var pasos = [
+{ name: 'Diagnosticar', cuando: 'SEM 1', sesion: 'VISITA DE DIAGNÓSTICO', pasa: 'Visita de medio día a su negocio: vemos la operación real y hablamos con usted y su gente.', lleva: 'El mapa de cómo opera hoy, lo que más le frena, la línea base y un informe con el radar de cinco áreas. Inversión: US$200, que no se cobran si contrata el proyecto.' },
+{ name: 'Planear', cuando: 'SEM 2', sesion: 'REUNIÓN DE DEVOLUCIÓN', pasa: 'Le presentamos lo encontrado, empezando por la recomendación. Usted elige el alcance.', lleva: 'Un plan de una página con objetivo, indicador y lo que queda fuera, y una propuesta con tres opciones a precio fijo.' },
+{ name: 'Implementar', cuando: 'SEM 3–8', sesion: 'REVISIÓN SEMANAL', pasa: 'Trabajamos en su negocio con su equipo: primero las mejoras rápidas, después los cambios de fondo.', lleva: 'Procedimientos e instructivos visuales, herramientas listas (inventario, flujo de caja, tableros) y un reporte cada semana.' },
+{ name: 'Entregar', cuando: 'SEM 9', sesion: 'SESIÓN DE ENTREGA', pasa: 'Capacitamos a quien va a usar cada herramienta y acompañamos el primer día con todo funcionando.', lleva: 'Su equipo capacitado, una guía de uso y la operación andando con el sistema nuevo.' },
+{ name: 'Cerrar', cuando: 'DÍA 30', sesion: 'PRESENTACIÓN DE CIERRE', pasa: 'Treinta días después de la entrega, medimos de nuevo con el mismo indicador.', lleva: 'Resultados contra la línea base, el informe final, la entrega formal y el siguiente punto a mejorar.' },
+{ name: 'Después del cierre', cuando: 'MENSUAL · OPCIONAL', sesion: 'ACOMPAÑAMIENTO', pasa: 'Si usted quiere, seguimos a su lado con una revisión mensual.', lleva: 'Indicadores al día, apoyo ante problemas nuevos y avisos de fondos para pymes que le pueden servir.' }
+];
+var pasosUI = pasos.map(function (x, i) {
+var on = i === st.s, done = i < st.s;
+return {
+name: x.name, cuando: x.cuando, num: i < 5 ? String(i + 1) : 'DESPUÉS', sel: on ? 'true' : 'false',
+dot: on ? '#E8782A' : (done ? '#0F3A4E' : '#F4EFE8'), ring: on ? '#E8782A' : '#0F3A4E',
+halo: on ? '0 0 0 5px rgba(232,120,42,0.22)' : 'none', weight: on ? 700 : 600,
+pick: function () { self.setState({ s: i }); }
+};
+});
+var c = pasos[st.s];
+var crumb = st.s < 5 ? 'PASO ' + (st.s + 1) + ' · ' + c.cuando.replace('SEM', 'SEMANA') + ' · ' + c.sesion : 'DESPUÉS · ' + c.sesion;
+var cur = { name: c.name, pasa: c.pasa, lleva: c.lleva, crumb: crumb };
+
+var tramos = [
+{ name: 'Diagnosticar', sub: 'Ver · Medir', bloques: [
+{ crumb: 'DIAGNOSTICAR · VER', titulo: 'La visita', usted: 'Nos cuenta qué le duele del negocio y nos abre la operación tal como es, sin maquillaje.', ansa: 'Recorremos el proceso donde ocurre (bodega, taller, mostrador) y anotamos cada paso, espera y reproceso.' },
+{ crumb: 'DIAGNOSTICAR · MEDIR', titulo: 'La línea base', usted: 'Aprueba el indicador con el que vamos a medir el resultado.', ansa: 'Tomamos los datos mínimos, aunque sea a mano, y armamos el radar de madurez con los cinco hallazgos principales.' }
+] },
+{ name: 'Implementar', sub: 'Ordenar · Estandarizar', bloques: [
+{ crumb: 'IMPLEMENTAR · ORDENAR', titulo: 'Las mejoras', usted: 'Elige una de las tres opciones del plan y nombra a su contraparte.', ansa: 'Empezamos por las mejoras rápidas para que vea resultados pronto, y luego los cambios de fondo.' },
+{ crumb: 'IMPLEMENTAR · ESTANDARIZAR', titulo: 'Los procedimientos', usted: 'Valida cada cambio con su equipo antes de que quede fijo.', ansa: 'Escribimos procedimientos e instructivos visuales y capacitamos a quien los va a usar.' }
+] },
+{ name: 'Medir', sub: 'Comparar · Sostener', bloques: [
+{ crumb: 'MEDIR · COMPARAR', titulo: 'El resultado', usted: 'Confirma el resultado contra el indicador acordado.', ansa: 'Comparamos el antes contra el después y entregamos el informe final, con la respuesta primero.' },
+{ crumb: 'MEDIR · SOSTENER', titulo: 'El seguimiento', usted: 'Decide si seguimos con el siguiente punto o cerramos.', ansa: 'Dejamos un plan para que lo logrado se mantenga y proponemos el siguiente punto a mejorar.' }
+] }
+];
+var tramosUI = tramos.map(function (x, i) {
+var on = i === st.t;
+return { name: x.name, sub: x.sub, sel: on ? 'true' : 'false', dot: on ? '#E8782A' : '#FFFFFF', ring: on ? '#E8782A' : '#0F3A4E', weight: on ? 700 : 600, pick: function () { self.setState({ t: i }); } };
+});
+
+var U = { bg: '#FFFFFF', borde: '#0F3A4E' }, A = { bg: 'rgba(232,120,42,0.14)', borde: '#E8782A' };
+function caja(t, who, badge, last) { return { t: t, bg: who.bg, borde: who.borde, badge: badge || '', flecha: !last }; }
+var columnas = [
+{ name: 'DIAGNOSTICAR', cajas: [caja('Nos escribe', U), caja('Conversemos 30 min', U), caja('Visita al negocio', A), caja('Línea base', A, '1'), caja('Radar y hallazgos', A), caja('Aprueba el plan', U, '2', true)] },
+{ name: 'IMPLEMENTAR', cajas: [caja('Arranque con su equipo', A), caja('Mejoras rápidas', A), caja('Procedimientos', A), caja('Valida cambios', U, '3'), caja('Capacitación', A), caja('Reporte semanal', A, '', true)] },
+{ name: 'MEDIR', cajas: [caja('Entrega', A), caja('Antes vs. después', A), caja('Confirma resultado', U, '4'), caja('Plan para sostener', A), caja('Siguiente punto', U, '', true)] }
+];
+
+var h = Number(st.h) || 0, v = Number(st.v) || 0, p = Math.min(100, Math.max(0, Number(st.p) || 0));
+var horas = h * 52 * p / 100;
+var anio = horas * v;
+var o = st.open;
+var waNum = '50689341793';
+var doloresDef = [
+['No puedo irme ni una semana', 'Todo depende de usted: si falta, el negocio se detiene o se desordena.'],
+['El inventario nunca cuadra', 'Lo que dice el sistema no es lo que hay en la bodega, y nadie sabe por qué.'],
+['Vendo bien, pero la plata no se ve', 'Entra dinero todos los meses, pero no sabe dónde se queda.']
+];
+var dolores = doloresDef.map(function (d, i) { var on = st.dol[i];
+return { titulo: d[0], texto: d[1], sel: on ? 'true' : 'false', bg: on ? '#0F3A4E' : '#F4EFE8', fg: on ? '#FFFFFF' : '#0F3A4E', sub: on ? '#E8DED2' : '#2B2B2B', borde: on ? '#0F3A4E' : '#E8DED2', check: on ? '✓' : '', checkBg: on ? '#E8782A' : '#FFFFFF', checkBorde: on ? '#E8782A' : '#0F3A4E',
+pick: function () { var a = self.state.dol.slice(); a[i] = !a[i]; self.setState({ dol: a }); } }; });
+var nDol = st.dol.filter(Boolean).length;
+var doloresMsg = nDol === 0 ? 'Toque las que le pasan.' : (nDol === 3 ? 'Marcó las tres. Tranquilo: es lo más común, y tiene solución.' : 'Marcó ' + nDol + ' de 3. Eso tiene solución, y empieza por medir.');
+var filtrosDef = [['todos', 'Todos'], ['calidad', 'Calidad'], ['procesos', 'Procesos'], ['planta', 'Producción y planta'], ['control', 'Inventario y finanzas']];
+var tags = { luva: ['calidad', 'procesos'], payute: ['control', 'procesos'], nuso: ['planta', 'procesos'], yuca: ['planta', 'calidad', 'procesos'] };
+var filtros = filtrosDef.map(function (f) { var on = st.f === f[0]; return { name: f[1], sel: on ? 'true' : 'false', bg: on ? '#0F3A4E' : 'transparent', fg: on ? '#FFFFFF' : '#0F3A4E', pick: function () { self.setState({ f: f[0] }); } }; });
+var op = {}; Object.keys(tags).forEach(function (k) { op[k] = (st.f === 'todos' || tags[k].indexOf(st.f) >= 0) ? 1 : 0.3; });
+
+var areas = [
+{ area: 'Procesos', corto: 'Procesos', texto: '¿Sus procesos están escritos y cada persona sabe cómo hacer su trabajo?', ops: ['No', 'A medias', 'Casi todos', 'Sí, y se cumplen'], empezar: 'ordenar y escribir sus procesos clave, para que el negocio no dependa de la memoria de nadie.' },
+{ area: 'Inventario y logística', corto: 'Inventario', texto: '¿Sabe cuánto inventario tiene y dónde está, sin tener que contarlo?', ops: ['No', 'Más o menos', 'Casi siempre', 'Sí, al día'], empezar: 'poner control de inventario: ubicación, conteos y conciliación con el sistema.' },
+{ area: 'Finanzas', corto: 'Finanzas', texto: '¿Conoce el margen real de sus productos o servicios y su flujo de caja?', ops: ['No', 'Una idea', 'Casi todo', 'Sí, lo reviso'], empezar: 'aclarar los números: margen por producto, cuentas por pagar y flujo de caja.' },
+{ area: 'Producción y operación', corto: 'Operación', texto: '¿Cuánto tiempo pierde su gente esperando, buscando cosas o repitiendo trabajo?', ops: ['Mucho', 'Bastante', 'Poco', 'Casi nada'], empezar: 'eliminar esperas y reprocesos: orden del área (5S), distribución y cargas de trabajo.' },
+{ area: 'Calidad', corto: 'Calidad', texto: '¿Mide los errores, devoluciones o quejas de sus clientes?', ops: ['No', 'A veces', 'Casi siempre', 'Sí, con indicadores'], empezar: 'medir la calidad: registrar errores y quejas, y atacar la causa raíz.' }
+];
+var preguntas = areas.map(function (a, i) {
+return { n: i + 1, area: a.area.toUpperCase(), texto: a.texto, ops: a.ops.map(function (t, j) {
+var on = st.q[i] === j + 1;
+return { t: t, sel: on ? 'true' : 'false', bg: on ? '#0F3A4E' : '#F4EFE8', fg: on ? '#FFFFFF' : '#0F3A4E', borde: on ? '#0F3A4E' : '#E8DED2', pick: function () { var q = self.state.q.slice(); q[i] = j + 1; self.setState({ q: q }); } };
+}) };
+});
+var cx = 150, cy = 145, R = 100;
+function pt(i, r) { var a = -Math.PI / 2 + i * 2 * Math.PI / 5; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; }
+function poly(fr) { return [0, 1, 2, 3, 4].map(function (i) { var p = pt(i, R * fr); return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' '); }
+var vals = st.q.map(function (v) { return v || 0; });
+var ejes = areas.map(function (a, i) { var e = pt(i, R), l = pt(i, R + 18); var anc = Math.abs(l[0] - cx) < 8 ? 'middle' : (l[0] > cx ? 'start' : 'end'); return { x: e[0].toFixed(1), y: e[1].toFixed(1), lx: l[0].toFixed(1), ly: (l[1] + 4).toFixed(1), anchor: anc, label: a.corto }; });
+var puntos = vals.map(function (v, i) { var p = pt(i, R * Math.max(v, 0.15) / 4); return { x: p[0].toFixed(1), y: p[1].toFixed(1) }; });
+var ptsStr = vals.map(function (v, i) { var p = pt(i, R * Math.max(v, 0.15) / 4); return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+var respondidas = vals.filter(function (v) { return v > 0; }).length;
+var completo = respondidas === 5;
+var diag;
+if (!completo) {
+diag = { completo: false, titulo: respondidas === 0 ? 'Responda las cinco preguntas' : 'Va ' + respondidas + ' de 5', texto: 'Al terminar le digo por dónde empezaría yo en su negocio.', wa: '' };
+} else {
+var min = 0; vals.forEach(function (v, i) { if (v < vals[min]) min = i; });
+var prom = vals.reduce(function (a, b) { return a + b; }, 0) / 5;
+var nivel = prom < 2 ? 'Hay mucho por ordenar, y eso es buena noticia: las primeras mejoras se notan rápido.' : (prom < 3 ? 'Tiene una base, pero el negocio todavía depende demasiado de usted.' : 'Su negocio va bien encaminado; el siguiente paso es medir y estandarizar.');
+var resumen = areas.map(function (a, i) { return a.corto + ' ' + vals[i] + '/4'; }).join(', ');
+diag = { completo: true, titulo: 'Por dónde empezaría: ' + areas[min].area, texto: nivel + ' Mi primera recomendación sería ' + areas[min].empezar,
+wa: 'https://wa.me/' + waNum + '?text=' + encodeURIComponent('Hola Andrés, hice el autodiagnóstico de ANSA: ' + resumen + '. Me gustaría conversar sobre mi negocio.') };
+}
+var radar = { g4: poly(1), g3: poly(0.75), g2: poly(0.5), g1: poly(0.25), ejes: ejes, puntos: puntos, pts: ptsStr,
+aria: 'Radar de madurez: ' + areas.map(function (a, i) { return a.corto + ' ' + vals[i] + ' de 4'; }).join(', ') };
+return {
+abrirCosto: function () { var o = Object.assign({}, self.state.open); o.costo = true; self.setState({ open: o }); },
+dolores: dolores, doloresMsg: doloresMsg, doloresAlguno: nDol > 0,
+filtros: filtros, op: op, preguntas: preguntas, radar: radar, diag: diag,
+resetQuiz: function () { self.setState({ q: [0, 0, 0, 0, 0] }); },
+prevPaso: function () { self.setState({ s: Math.max(0, self.state.s - 1) }); },
+nextPaso: function () { self.setState({ s: Math.min(5, self.state.s + 1) }); },
+esPrimero: st.s === 0, esUltimo: st.s === 5, opPrev: st.s === 0 ? 0.35 : 1, opNext: st.s === 5 ? 0.35 : 1,
+wa: 'https://wa.me/' + waNum + '?text=' + encodeURIComponent('Hola Andrés, vi la página de ANSA y quiero conversar sobre mi negocio.'),
+waAgenda: 'https://wa.me/' + waNum + '?text=' + encodeURIComponent('Hola Andrés, quiero agendar 30 minutos para conversar sobre mi negocio.'),
+rootClass: st.paused ? 'pausado' : '',
+menuOpen: st.menu, menuExp: st.menu ? 'true' : 'false',
+toggleMenu: function () { self.setState({ menu: !self.state.menu }); },
+closeMenu: function () { self.setState({ menu: false }); },
+toggleMotion: function () { self.setState({ paused: !self.state.paused }); },
+motionLabel: st.paused ? 'Reanudar movimiento' : 'Pausar movimiento',
+nodos: nodos, pasos: pasosUI, cur: cur, tramos: tramosUI, curT: { bloques: tramos[st.t].bloques }, columnas: columnas,
+open: o,
+tCore: this.tog('core'), tPide: this.tog('pide'), tCosto: this.tog('costo'),
+coreExp: o.core ? 'true' : 'false', pideExp: o.pide ? 'true' : 'false', costoExp: o.costo ? 'true' : 'false',
+coreRot: o.core ? 'rotate(180deg)' : 'none', pideRot: o.pide ? 'rotate(180deg)' : 'none', costoRot: o.costo ? 'rotate(180deg)' : 'none',
+coreDeco: o.core ? 'underline' : 'none', pideDeco: o.pide ? 'underline' : 'none', costoDeco: o.costo ? 'underline' : 'none',
+h: st.h, v: st.v, p: st.p,
+onH: function (e) { self.setState({ h: e.target.value }); },
+onV: function (e) { self.setState({ v: e.target.value }); },
+onP: function (e) { self.setState({ p: e.target.value }); },
+horas: this.fmt(horas), anio: this.fmt(anio), mes: this.fmt(anio / 12), dias: this.fmt(horas / 8)
+};
+}
+}
+(function () {
+  var comp = new Component({});
+  var scope = PetiteVue.reactive(comp.renderVals());
+  window.__refresh = function () { Object.assign(scope, comp.renderVals()); };
+  PetiteVue.createApp(scope).mount('#app');
+})();
+</script>
+</body>
+</html>
