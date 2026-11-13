@@ -34,7 +34,11 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #E878
 .tarjeta{transition:transform .2s cubic-bezier(.22,1,.36,1),box-shadow .2s,opacity .25s}
 .tarjeta:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,58,78,.12)}
 .opcion{transition:background .15s,color .15s,border-color .15s}
-main p,main li{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
+main p,main li{text-align:justify;text-justify:inter-word;hyphens:manual;-webkit-hyphens:manual}
+@keyframes parpadeo{0%,49%{opacity:1}50%,100%{opacity:0}}
+.cursor{animation:parpadeo 1s step-end infinite}
+.tipeo{min-height:1.35em}
+@media (max-width: 640px){.tipeo{min-height:2.7em}}
 .nj p,.nj li,p.nj{text-align:left !important;hyphens:manual !important}
 
 [v-cloak]{opacity:0}
@@ -68,7 +72,10 @@ main p,main li{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-h
 <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(232,222,210,0.35); font-size: 14px; font-weight: 600; color: #E8DED2"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #E8782A"></span>Consultoría en procesos y calidad · Costa Rica</span>
 <h1 style="margin: 0; font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.06; letter-spacing: -0.02em; color: #FFFFFF">Ponemos su negocio en orden, <span style="color: #E8782A">con usted en cada proceso.</span></h1>
-<p style="margin: 0; font-size: clamp(17px, 1.8vw, 20px); line-height: 1.55; color: #F4EFE8; max-width: 580px">Procesos, calidad, auditorías, automatización y departamentos que funcionan sin depender de usted. Medimos dónde está su negocio, implementamos junto a su gente y le mostramos el resultado en números.</p>
+<div class="nj" style="display: flex; flex-direction: column; gap: 10px; max-width: 600px">
+<p style="margin: 0; font-family: Sora, sans-serif; font-weight: 600; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.35; color: #FFFFFF" class="tipeo">Ordenamos sus <a href="#servicios" aria-label="Ver servicios" style="color: #E8782A; text-decoration: none; border-bottom: 3px solid #E8782A">{{tipeo}}<span class="cursor" aria-hidden="true" style="display: inline-block; width: 3px; height: 1em; margin-left: 2px; vertical-align: -0.12em; background: #E8782A"></span></a></p>
+<p style="margin: 0; font-size: clamp(16px, 1.6vw, 18px); line-height: 1.6; color: #E8DED2">Medimos dónde está su negocio, implementamos junto a su gente y le mostramos el resultado en números.</p>
+</div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a :href="waAgenda" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 8px; background: #E8782A; color: #0A2A39; text-decoration: none; font-weight: 700">Agendar diagnóstico</a>
 <a href="#servicios" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.6); color: #FFFFFF; text-decoration: none; font-weight: 600">Ver servicios</a>
@@ -508,8 +515,31 @@ class DCLogic { constructor(props) { this.props = props || {}; this.state = {}; 
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { dol: [false, false, false], s: 0, t: 0, f: 'todos', q: [0, 0, 0, 0, 0], h: 8, v: 5000, p: 50, open: { core: true, pide: false, costo: false }, menu: false, paused: false };
+this.state = { tw: 0, tc: 0, tdel: false, thold: 0, dol: [false, false, false], s: 0, t: 0, f: 'todos', q: [0, 0, 0, 0, 0], h: 8, v: 5000, p: 50, open: { core: true, pide: false, costo: false }, menu: false, paused: false };
 }
+componentDidMount() {
+var self = this;
+var words = this.palabras();
+var reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce) {
+this.setState({ tc: 999 });
+this._t = setInterval(function () { self.setState({ tw: (self.state.tw + 1) % words.length, tc: 999 }); }, 2600);
+return;
+}
+this._t = setInterval(function () {
+var st = self.state, w = words[st.tw];
+if (st.thold > 0) { self.setState({ thold: st.thold - 1 }); return; }
+if (!st.tdel) {
+if (st.tc < w.length) self.setState({ tc: st.tc + 1 });
+else self.setState({ tdel: true, thold: 26 });
+} else {
+if (st.tc > 0) self.setState({ tc: st.tc - 1 });
+else self.setState({ tdel: false, tw: (st.tw + 1) % words.length, thold: 4 });
+}
+}, 55);
+}
+componentWillUnmount() { clearInterval(this._t); }
+palabras() { return ['procesos', 'sistemas de calidad', 'auditorías', 'inventarios', 'departamentos de ventas', 'compras', 'cotizaciones y licitaciones', 'indicadores y KPI', 'tareas repetitivas']; }
 fmt(n) {
 var x = Math.round(isFinite(n) ? n : 0);
 return String(x).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -622,7 +652,9 @@ wa: 'https://wa.me/' + waNum + '?text=' + encodeURIComponent('Hola Andrés, hice
 }
 var radar = { g4: poly(1), g3: poly(0.75), g2: poly(0.5), g1: poly(0.25), ejes: ejes, puntos: puntos, pts: ptsStr,
 aria: 'Radar de madurez: ' + areas.map(function (a, i) { return a.corto + ' ' + vals[i] + ' de 4'; }).join(', ') };
+var _w = this.palabras()[st.tw];
 return {
+tipeo: _w.slice(0, Math.min(st.tc, _w.length)),
 abrirCosto: function () { var o = Object.assign({}, self.state.open); o.costo = true; self.setState({ open: o }); },
 dolores: dolores, doloresMsg: doloresMsg, doloresAlguno: nDol > 0,
 filtros: filtros, op: op, preguntas: preguntas, radar: radar, diag: diag,
@@ -657,6 +689,7 @@ horas: this.fmt(horas), anio: this.fmt(anio), mes: this.fmt(anio / 12), dias: th
   var scope = PetiteVue.reactive(comp.renderVals());
   window.__refresh = function () { Object.assign(scope, comp.renderVals()); };
   PetiteVue.createApp(scope).mount('#app');
+  if (comp.componentDidMount) comp.componentDidMount();
 })();
 </script>
 </body>
